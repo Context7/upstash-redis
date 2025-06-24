@@ -2,7 +2,7 @@
 title: Metadata Filtering
 ---
 
-You can further limit the vector similarity search by providing a filter based on a specific metadata criteria.
+You can further restrict the vector similarity search by providing a filter based on a specific metadata criteria.
 
 Queries with metadata filters only return vectors which have metadata matching with the filter.
 
@@ -159,7 +159,7 @@ curl $UPSTASH_VECTOR_REST_URL/query \
 
 #### Equals (=)
 
-The `equals` operator filters keys whose value is equal to given literal.
+The `equals` operator filters keys whose values are equal to the given literal.
 
 It is applicable to _string_, _number_, and _boolean_ values.
 
@@ -169,7 +169,7 @@ country = 'Turkey' AND population = 15460000 AND is_capital = false
 
 #### Not Equals (!=)
 
-The `not equals` operator filters keys whose value is not equal to given literal.
+The `not equals` operator filters keys whose values are not equal to the given literal.
 
 It is applicable to _string_, _number_, and _boolean_ values.
 
@@ -179,7 +179,7 @@ country != 'Germany' AND population != 12500000 AND is_capital != true
 
 #### Less Than (\<)
 
-The `less than` operator filters keys whose value is less than the given literal.
+The `less than` operator filters keys whose values are less than the given literal.
 
 It is applicable to _number_ values.
 
@@ -189,7 +189,7 @@ population < 20000000 OR geography.coordinates.longitude < 30.0
 
 #### Less Than or Equals (\<=)
 
-The `less than or equals` operator filters keys whose value is less than or equal to the given literal.
+The `less than or equals` operator filters keys whose values are less than or equal to the given literal.
 
 It is applicable to _number_ values.
 
@@ -199,7 +199,7 @@ population <= 20000000 OR geography.coordinates.longitude <= 30.0
 
 #### Greater Than (>)
 
-The `greater than` operator filters keys whose value is greater than the given literal.
+The `greater than` operator filters keys whose values are greater than the given literal.
 
 It is applicable to _number_ values.
 
@@ -209,7 +209,7 @@ population > 10000000 OR geography.coordinates.latitude > 39.5
 
 #### Greater Than or Equals (>=)
 
-The `greater than or equals` operator filters keys whose value is greater than or equal to the given literal.
+The `greater than or equals` operator filters keys whose values are greater than or equal to the given literal.
 
 It is applicable to _number_ values.
 
@@ -219,7 +219,7 @@ population >= 10000000 OR geography.coordinates.latitude >= 39.5
 
 #### Glob
 
-The `glob` operator filters keys whose value matches the given UNIX glob pattern.
+The `glob` operator filters keys whose values match with the given UNIX glob pattern.
 
 It is applicable to _string_ values.
 
@@ -244,7 +244,7 @@ city GLOB '?[sz]*[^m-z]'
 
 #### Not Glob
 
-The `not glob` operator filters keys whose value does not match the given UNIX glob pattern.
+The `not glob` operator filters keys whose values do not match with the given UNIX glob pattern.
 
 It is applicable to _string_ values.
 
@@ -258,7 +258,7 @@ city NOT GLOB 'A*'
 
 #### In
 
-The `in` operator filters keys whose value is equal to any of the given literals.
+The `in` operator filters keys whose values are equal to any of the given literals.
 
 It is applicable to _string_, _number_, and _boolean_ values.
 
@@ -274,7 +274,7 @@ country = 'Germany' OR country = 'Turkey' OR country = 'France'
 
 #### Not In
 
-The `not in` operator filters keys whose value is not equal to any of the given literals.
+The `not in` operator filters keys whose values are not equal to any of the given literals.
 
 It is applicable to _string_, _number_, and _boolean_ values.
 
@@ -290,9 +290,9 @@ economy.currency != 'USD' AND economy.currency != 'EUR'
 
 #### Contains
 
-The `contains` operator filters keys whose value contains the given literal.
+The `contains` operator filters keys whose values contain the given literal.
 
-It is applicable to `array` values.
+It is applicable to _array_ values.
 
 ```SQL
 economy.major_industries CONTAINS 'Tourism'
@@ -300,9 +300,9 @@ economy.major_industries CONTAINS 'Tourism'
 
 #### Not Contains
 
-The `not contains` operator filters keys whose value does not contain the given literal.
+The `not contains` operator filters keys whose values do not contain the given literal.
 
-It is applicable to `array` values.
+It is applicable to _array_ values.
 
 ```SQL
 economy.major_industries NOT CONTAINS 'Steel Production'
@@ -310,7 +310,7 @@ economy.major_industries NOT CONTAINS 'Steel Production'
 
 #### Has Field
 
-The `has field` operator filters keys which having the given JSON field.
+The `has field` operator filters keys which have the given JSON field.
 
 
 ```SQL
@@ -319,7 +319,7 @@ HAS FIELD geography.coordinates
 
 #### Has Not Field
 
-The `has not field` operator filters keys which not having the given JSON field.
+The `has not field` operator filters keys which do not have the given JSON field.
 
 
 ```SQL
@@ -335,14 +335,14 @@ compound filters.
 country = 'Turkey' AND population > 10000000
 ```
 
-Boolean operators can be grouped with parentheses to have higher precendence.
+Boolean operators can be grouped with parentheses to have higher precedence.
 
 ```SQL
 country = 'Turkey' AND (population > 10000000 OR is_capital = false)
 ```
 
-When no parentheses are provided in ambigous filters, `AND` will have higher
-precendence than `OR`. So, the filter
+When no parentheses are provided in ambiguous filters, `AND` will have higher
+precedence than `OR`. So, the filter
 
 ```SQL
 country = 'Turkey' AND population > 10000000 OR is_capital = false
@@ -378,7 +378,7 @@ economy.major_industries[0] = 'Tourism'
 
 Also, it is possible to index from the back using the `#` character with negative values.
 `#` can be thought as the number of elements in the array, so `[#-1]` would reference the
-last character.
+last element.
 
 ```SQL
 economy.major_industries[#-1] = 'Finance'
