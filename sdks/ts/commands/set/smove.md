@@ -1,0 +1,37 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# SMOVE
+
+> Move a member from one set to another
+
+## Arguments
+
+<ParamField body="source" type="string" required>
+  The key of the set to move the member from.
+</ParamField>
+
+<ParamField body="destination" type="string" required>
+  The key of the set to move the member to.
+</ParamField>
+
+<ParamField body="member" type="TMember">
+  The members to move
+</ParamField>
+
+## Response
+
+<ResponseField type="0 | 1" required>
+  `1` if the member was moved, `0` if not.
+</ResponseField>
+
+<RequestExample>
+  ```ts Example  theme={"system"}
+  await redis.sadd("original", "a", "b", "c"); 
+  const moved =  await redis.smove("original", "destination", "a");
+  // moved:       1
+  // original:    ["b", "c"]
+  // destination: ["a"]
+  ```
+</RequestExample>

@@ -1,0 +1,29 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# JSON.RESP
+
+> Return the value at the path in Redis serialization protocol format.
+
+## Arguments
+
+<ParamField body="key" type="str" required>
+  The key of the json entry.
+</ParamField>
+
+<ParamField body="path" type="str" required>
+  The path of the object. `$` is the root.
+</ParamField>
+
+## Response
+
+<ResponseField type="TValue" required>
+  Return the value at the path in Redis serialization protocol format.
+</ResponseField>
+
+<RequestExample>
+  ```py Example theme={"system"}
+  resp = redis.json.resp("key", "$.path")
+  ```
+</RequestExample>

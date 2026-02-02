@@ -1,0 +1,37 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# JSON.ARRAPPEND
+
+> Append values to the array at path in the JSON document at key.
+
+<Tip>
+  To specify a string as an array value to append, wrap the quoted string with an additional set of single quotes. Example: '"silver"'.
+</Tip>
+
+## Arguments
+
+<ParamField body="key" type="str" required>
+  The key of the json entry.
+</ParamField>
+
+<ParamField body="path" type="str" required>
+  The path of the array. `$` is the root.
+</ParamField>
+
+<ParamField body="value" type="...TValue[]" required>
+  One or more values to append to the array.
+</ParamField>
+
+## Response
+
+<ResponseField type="List[int]" required>
+  The length of the array after the appending.
+</ResponseField>
+
+<RequestExample>
+  ```py Example theme={"system"}
+  redis.json.arrappend("key", "$.path.to.array", "a")
+  ```
+</RequestExample>

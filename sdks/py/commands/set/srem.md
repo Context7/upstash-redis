@@ -1,0 +1,31 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# SREM
+
+> Remove one or more members from a set
+
+## Arguments
+
+<ParamField body="key" type="str" required>
+  The key of the set to remove the member from.
+</ParamField>
+
+<ParamField body="members" type="*List[str]">
+  One or more members to remove from the set.
+</ParamField>
+
+## Response
+
+<ResponseField type="int" required>
+  How many members were removed
+</ResponseField>
+
+<RequestExample>
+  ```py Example  theme={"system"}
+  redis.sadd("myset", "one", "two", "three")
+
+  assert redis.srem("myset", "one", "four") == 1
+  ```
+</RequestExample>

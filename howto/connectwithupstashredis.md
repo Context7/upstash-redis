@@ -1,0 +1,69 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Connect with upstash-redis
+
+[upstash-redis](https://github.com/upstash/redis-js)
+is an HTTP/REST based Redis client built on top of
+[Upstash REST API](/redis/features/restapi). For more information,
+refer to the documentation of Upstash redis client ([TypeScript](/redis/sdks/ts/overview) & [Python](/redis/sdks/py/overview)).
+
+It is the only connectionless (HTTP based) Redis client and designed for:
+
+* Serverless functions (AWS Lambda ...)
+* Cloudflare Workers (see
+  [the example](https://github.com/upstash/redis-js/tree/main/examples/cloudflare-workers-with-typescript))
+* Fastly Compute\@Edge
+* Next.js, Jamstack ...
+* Client side web/mobile applications
+* WebAssembly
+* and other environments where HTTP is preferred over TCP.
+
+See
+[the list of APIs](https://upstash.com/docs/redis/features/restapi#rest-redis-api-compatibility)
+supported.
+
+## Quick Start
+
+### Install
+
+```bash  theme={"system"}
+npm install @upstash/redis
+```
+
+### Usage
+
+```typescript  theme={"system"}
+import { Redis } from "@upstash/redis";
+
+const redis = new Redis({
+  url: "UPSTASH_REDIS_REST_URL",
+  token: "UPSTASH_REDIS_REST_TOKEN",
+});
+
+(async () => {
+  try {
+    const data = await redis.get("key");
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+})();
+```
+
+If you define `UPSTASH_REDIS_REST_URL` and`UPSTASH_REDIS_REST_TOKEN` environment
+variables, you can load them automatically.
+
+```typescript  theme={"system"}
+import { Redis } from "@upstash/redis";
+
+const redis = Redis.fromEnv()(async () => {
+  try {
+    const data = await redis.get("key");
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+})();
+```

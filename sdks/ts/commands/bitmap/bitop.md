@@ -1,0 +1,35 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# BITOP
+
+> Perform bitwise operations between strings.
+
+The `BITOP` command in Redis is used to perform bitwise operations on multiple keys (or Redis strings) and store the result in a destination key. It is primarily used for performing logical AND, OR, XOR, and NOT operations on binary data stored in Redis.
+
+## Arguments
+
+<ParamField body="operation" type="AND | OR | XOR | NOT" required>
+  Specifies the type of bitwise operation to perform, which can be one of the following: `AND`, `OR`, `XOR`, or `NOT`.
+</ParamField>
+
+<ParamField body="destinationKey" type="string" required>
+  The key to store the result of the operation in.
+</ParamField>
+
+<ParamField body="sourceKeys" type="...string[]" required>
+  One or more keys to perform the operation on.
+</ParamField>
+
+## Response
+
+<ResponseField type="integer" required>
+  The size of the string stored in the destination key.
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+   await redis.bitop("AND", "destKey", "sourceKey1", "sourceKey2");
+  ```
+</RequestExample>

@@ -1,0 +1,33 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# ZREMRANGEBYRANK
+
+> Remove all members in a sorted set between the given ranks.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the sorted set
+</ParamField>
+
+<ParamField body="min" type="number" required>
+  The minimum rank to remove.
+</ParamField>
+
+<ParamField body="max" type="number" required>
+  The maximum rank to remove.
+</ParamField>
+
+## Response
+
+<ResponseField type="integer" required>
+  The number of elements removed from the sorted set.
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  await redis.zremrangebyrank("key", 4, 20)
+  ```
+</RequestExample>

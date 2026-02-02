@@ -1,0 +1,38 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# HPEXPIRETIME
+
+> Retrieves the expiration time of a field in a hash in milliseconds.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the hash.
+</ParamField>
+
+<ParamField body="fields" type="string | number | (string | number)[]" required>
+  The field(s) to retrieve the expiration time for.
+</ParamField>
+
+## Response
+
+<ResponseField type="integer" required>
+  The expiration time in milliseconds since the Unix epoch.
+
+  * `-2` if the field does not exist in the hash or if the key doesn't exist.
+  * `-1` if the field exists but has no associated expiration.
+
+  For more details, see [HPEXPIRETIME documentation](https://redis.io/commands/hpexpiretime).
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  await redis.hset("my-key", "my-field", "my-value");
+  await redis.hpexpireat("my-key", "my-field", Date.now() + 1000);
+  const expireTime = await redis.hpexpiretime("my-key", "my-field");
+
+  console.log(expireTime); // e.g., 1697059200000
+  ```
+</RequestExample>

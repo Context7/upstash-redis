@@ -1,0 +1,60 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# XADD
+
+> Appends one or more new entries to a stream.
+
+## Arguments
+
+<ParamField body="key" type="str" required>
+  The key to of the stream.
+</ParamField>
+
+<ParamField body="id" type="str | *" required>
+  The stream entry ID. If `*` is passed, a new ID will be generated
+  automatically.
+</ParamField>
+
+<ParamField body="data" type="Dict[str, Any]" required>
+  Key-value data to be appended to the stream.
+</ParamField>
+
+<ParamField body="maxlen" type="int">
+  The maximum number of entries to keep in the stream. Mutually exclusive with `minid`.
+</ParamField>
+
+<ParamField body="approximate_trim" type="bool" default="True">
+  Use approximate trimming (more efficient). When `True`, Redis may keep slightly more entries than specified. Defaults to `True`.
+</ParamField>
+
+<ParamField body="nomkstream" type="bool" default="False">
+  Prevent creating the stream if it does not exist. Defaults to `False`.
+</ParamField>
+
+<ParamField body="minid" type="str">
+  The minimum ID to keep. Entries with IDs lower than this will be removed. Mutually exclusive with `maxlen`.
+</ParamField>
+
+<ParamField body="limit" type="int">
+  Limit how many entries will be trimmed at most (only valid with approximate trimming).
+</ParamField>
+
+## Response
+
+<ResponseField type="str">The ID of the newly added entry.</ResponseField>
+
+<RequestExample>
+  ```py Basic Example theme={"system"}
+  redis.xadd("mystream", "*", {"name": "John Doe", "age": 30})
+  ```
+
+  ```py With Custom ID theme={"system"}
+  redis.xadd("mystream", "1634567890123-0", {"temperature": 25.5, "humidity": 60})
+  ```
+
+  ```py Approximate trim with maxlen theme={"system"}
+  redis.xadd("mystream", "*", {"log_level": "error", "message": "Database connection failed"}, maxlen=100)
+  ```
+</RequestExample>

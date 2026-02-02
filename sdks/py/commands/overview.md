@@ -1,0 +1,487 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Overview
+
+> Available Commands in upstash-redis
+
+<AccordionGroup>
+  <Accordion title="Auth">
+    <CardGroup cols={3}>
+      <Card title="ECHO" href="/redis/sdks/py/commands/auth/echo">
+        Echo the given string.
+      </Card>
+
+      <Card title="PING" href="/redis/sdks/py/commands/auth/ping">
+        Ping the server.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Bitmap">
+    <CardGroup cols={3}>
+      <Card title="BITCOUNT" href="/redis/sdks/py/commands/bitmap/bitcount">
+        Count set bits in a string.
+      </Card>
+
+      <Card title="BITFIELD" href="/redis/sdks/py/commands/bitmap/bitfield">
+        Perform bitwise operations between strings.
+      </Card>
+
+      <Card title="BITOP" href="/redis/sdks/py/commands/bitmap/bitop">
+        Perform bitwise operations between strings.
+      </Card>
+
+      <Card title="BITPOS" href="/redis/sdks/py/commands/bitmap/bitpos">
+        Find first bit set or clear in a string.
+      </Card>
+
+      <Card title="GETBIT" href="/redis/sdks/py/commands/bitmap/getbit">
+        Returns the bit value at offset in the string value stored at key.
+      </Card>
+
+      <Card title="SETBIT" href="/redis/sdks/py/commands/bitmap/setbit">
+        Sets or clears the bit at offset in the string value stored at key.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Generic">
+    <CardGroup cols={3}>
+      <Card title="DEL" href="/redis/sdks/py/commands/generic/del">
+        Delete one or multiple keys.
+      </Card>
+
+      <Card title="EXISTS" href="/redis/sdks/py/commands/generic/exists">
+        Determine if a key exists.
+      </Card>
+
+      <Card title="EXPIRE" href="/redis/sdks/py/commands/generic/expire">
+        Set a key's time to live in seconds.
+      </Card>
+
+      <Card title="EXPIREAT" href="/redis/sdks/py/commands/generic/expireat">
+        Set the expiration for a key as a UNIX timestamp.
+      </Card>
+
+      <Card title="KEYS" href="/redis/sdks/py/commands/generic/keys">
+        Find all keys matching the given pattern.
+      </Card>
+
+      <Card title="PERSIST" href="/redis/sdks/py/commands/generic/persist">
+        Remove the expiration from a key.
+      </Card>
+
+      <Card title="PEXPIRE" href="/redis/sdks/py/commands/generic/pexpire">
+        Set a key's time to live in milliseconds.
+      </Card>
+
+      <Card title="PEXPIREAT" href="/redis/sdks/py/commands/generic/pexpireat">
+        Set the expiration for a key as a UNIX timestamp specified in milliseconds.
+      </Card>
+
+      <Card title="PTTL" href="/redis/sdks/py/commands/generic/pttl">
+        Get the time to live for a key in milliseconds.
+      </Card>
+
+      <Card title="RANDOMKEY" href="/redis/sdks/py/commands/generic/randomkey">
+        Return a random key from the keyspace.
+      </Card>
+
+      <Card title="RENAME" href="/redis/sdks/py/commands/generic/rename">
+        Rename a key.
+      </Card>
+
+      <Card title="RENAMENX" href="/redis/sdks/py/commands/generic/renamenx">
+        Rename a key, only if the new key does not exist.
+      </Card>
+
+      <Card title="SCAN" href="/redis/sdks/py/commands/generic/scan">
+        Incrementally iterate the keys space.
+      </Card>
+
+      <Card title="TOUCH" href="/redis/sdks/py/commands/generic/touch">
+        Alters the last access time of a key(s). Returns the number of existing keys specified.
+      </Card>
+
+      <Card title="TTL" href="/redis/sdks/py/commands/generic/ttl">
+        Get the time to live for a key.
+      </Card>
+
+      <Card title="TYPE" href="/redis/sdks/py/commands/generic/type">
+        Determine the type stored at key.
+      </Card>
+
+      <Card title="UNLINK" href="/redis/sdks/py/commands/generic/unlink">
+        Delete one or more keys.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Hash">
+    <CardGroup cols={3}>
+      <Card title="HDEL" href="/redis/sdks/py/commands/hash/hdel" />
+
+      <Card title="HEXISTS" href="/redis/sdks/py/commands/hash/hexists" />
+
+      <Card title="HEXPIRE" href="/redis/sdks/py/commands/hash/hexpire" />
+
+      <Card title="HEXPIREAT" href="/redis/sdks/py/commands/hash/hexpireat" />
+
+      <Card title="HEXPIRETIME" href="/redis/sdks/py/commands/hash/hexpiretime" />
+
+      <Card title="HGET" href="/redis/sdks/py/commands/hash/hget" />
+
+      <Card title="HGETALL" href="/redis/sdks/py/commands/hash/hgetall" />
+
+      <Card title="HINCRBY" href="/redis/sdks/py/commands/hash/hincrby" />
+
+      <Card title="HINCRBYFLOAT" href="/redis/sdks/py/commands/hash/hincrbyfloat" />
+
+      <Card title="HKEYS" href="/redis/sdks/py/commands/hash/hkeys" />
+
+      <Card title="HLEN" href="/redis/sdks/py/commands/hash/hlen" />
+
+      <Card title="HMGET" href="/redis/sdks/py/commands/hash/hmget" />
+
+      <Card title="HRANDFIELD" href="/redis/sdks/py/commands/hash/hrandfield" />
+
+      <Card title="HPERSIST" href="/redis/sdks/py/commands/hash/hpersist" />
+
+      <Card title="HPEXPIRE" href="/redis/sdks/py/commands/hash/hpexpire" />
+
+      <Card title="HPEXPIREAT" href="/redis/sdks/py/commands/hash/hpexpireat" />
+
+      <Card title="HPEXPIRETIME" href="/redis/sdks/py/commands/hash/hpexpiretime" />
+
+      <Card title="HPTTL" href="/redis/sdks/py/commands/hash/hpttl" />
+
+      <Card title="HSCAN" href="/redis/sdks/py/commands/hash/hscan" />
+
+      <Card title="HSET" href="/redis/sdks/py/commands/hash/hset" />
+
+      <Card title="HSET" href="/redis/sdks/py/commands/hash/hmset" />
+
+      <Card title="HSETNX" href="/redis/sdks/py/commands/hash/hsetnx" />
+
+      <Card title="HSTRLEN" href="/redis/sdks/py/commands/hash/hstrlen" />
+
+      <Card title="HTTL" href="/redis/sdks/py/commands/hash/httl" />
+
+      <Card title="HVALS" href="/redis/sdks/py/commands/hash/hvals" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="List">
+    <CardGroup cols={3}>
+      <Card title="LINDEX" href="/redis/sdks/py/commands/list/lindex" />
+
+      <Card title="LINSERT" href="/redis/sdks/py/commands/list/linsert" />
+
+      <Card title="LLEN" href="/redis/sdks/py/commands/list/llen" />
+
+      <Card title="LMOVE" href="/redis/sdks/py/commands/list/lmove" />
+
+      <Card title="LPOP" href="/redis/sdks/py/commands/list/lpop" />
+
+      <Card title="LPOS" href="/redis/sdks/py/commands/list/lpos" />
+
+      <Card title="LPUSH" href="/redis/sdks/py/commands/list/lpush" />
+
+      <Card title="LPUSHX" href="/redis/sdks/py/commands/list/lpushx" />
+
+      <Card title="LRANGE" href="/redis/sdks/py/commands/list/lrange" />
+
+      <Card title="LREM" href="/redis/sdks/py/commands/list/lrem" />
+
+      <Card title="LSET" href="/redis/sdks/py/commands/list/lset" />
+
+      <Card title="LTRIM" href="/redis/sdks/py/commands/list/ltrim" />
+
+      <Card title="RPOP" href="/redis/sdks/py/commands/list/rpop" />
+
+      <Card title="RPUSH" href="/redis/sdks/py/commands/list/rpush" />
+
+      <Card title="RPUSHX" href="/redis/sdks/py/commands/list/rpushx" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="PubSub">
+    <CardGroup cols={3}>
+      <Card title="PUBLISH" href="/redis/sdks/py/commands/pubsub/publish">
+        Publish messages to many clients
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Scripts">
+    <CardGroup cols={3}>
+      <Card title="EVAL" href="/redis/sdks/py/commands/scripts/eval" />
+
+      <Card title="EVAL_RO" href="/redis/sdks/py/commands/scripts/eval_ro" />
+
+      <Card title="EVALSHA" href="/redis/sdks/py/commands/scripts/evalsha" />
+
+      <Card title="EVALSHA_RO" href="/redis/sdks/py/commands/scripts/evalsha_ro" />
+
+      <Card title="SCRIPT EXISTS" href="/redis/sdks/py/commands/scripts/script_exists" />
+
+      <Card title="SCRIPT FLUSH" href="/redis/sdks/py/commands/scripts/script_flush" />
+
+      <Card title="SCRIPT LOAD" href="/redis/sdks/py/commands/scripts/script_load" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Server">
+    <CardGroup cols={3}>
+      <Card title="DBSIZE" href="/redis/sdks/py/commands/server/dbsize" />
+
+      <Card title="FLUSHALL" href="/redis/sdks/py/commands/server/flushall" />
+
+      <Card title="FLUSHDB" href="/redis/sdks/py/commands/server/flushdb" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Set">
+    <CardGroup cols={3}>
+      <Card title="SADD" href="/redis/sdks/py/commands/set/sadd" />
+
+      <Card title="SCARD" href="/redis/sdks/py/commands/set/scard" />
+
+      <Card title="SDIFF" href="/redis/sdks/py/commands/set/sdiff" />
+
+      <Card title="SDIFFSTORE" href="/redis/sdks/py/commands/set/sdiffstore" />
+
+      <Card title="SINTER" href="/redis/sdks/py/commands/set/sinter" />
+
+      <Card title="SINTERSTORE" href="/redis/sdks/py/commands/set/sinterstore" />
+
+      <Card title="SISMEMBER" href="/redis/sdks/py/commands/set/sismember" />
+
+      <Card title="SMEMBERS" href="/redis/sdks/py/commands/set/smembers" />
+
+      <Card title="SMISMEMBER" href="/redis/sdks/py/commands/set/smismember" />
+
+      <Card title="SMOVE" href="/redis/sdks/py/commands/set/smove" />
+
+      <Card title="SPOP" href="/redis/sdks/py/commands/set/spop" />
+
+      <Card title="SRANDMEMBER" href="/redis/sdks/py/commands/set/srandmember" />
+
+      <Card title="SREM" href="/redis/sdks/py/commands/set/srem" />
+
+      <Card title="SSCAN" href="/redis/sdks/py/commands/set/sscan" />
+
+      <Card title="SUNION" href="/redis/sdks/py/commands/set/sunion" />
+
+      <Card title="SUNIONSTORE" href="/redis/sdks/py/commands/set/sunionstore" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Sorted Set">
+    <CardGroup cols={3}>
+      <Card title="ZADD" href="/redis/sdks/py/commands/zset/zadd" />
+
+      <Card title="ZCARD" href="/redis/sdks/py/commands/zset/zcard" />
+
+      <Card title="ZCOUNT" href="/redis/sdks/py/commands/zset/zcount" />
+
+      <Card title="ZDIFF" href="/redis/sdks/py/commands/zset/zdiff" />
+
+      <Card title="ZDIFFSTORE" href="/redis/sdks/py/commands/zset/zdiffstore" />
+
+      <Card title="ZINCRBY" href="/redis/sdks/py/commands/zset/zincrby" />
+
+      <Card title="ZINTER" href="/redis/sdks/py/commands/zset/zinter" />
+
+      <Card title="ZINTERSTORE" href="/redis/sdks/py/commands/zset/zinterstore" />
+
+      <Card title="ZLEXCOUNT" href="/redis/sdks/py/commands/zset/zlexcount" />
+
+      <Card title="ZMSCORE" href="/redis/sdks/py/commands/zset/zmscore" />
+
+      <Card title="ZPOPMAX" href="/redis/sdks/py/commands/zset/zpopmax" />
+
+      <Card title="ZPOPMIN" href="/redis/sdks/py/commands/zset/zpopmin" />
+
+      <Card title="ZRANDMEMBER" href="/redis/sdks/py/commands/zset/zrandmember" />
+
+      <Card title="ZRANGE" href="/redis/sdks/py/commands/zset/zrange" />
+
+      <Card title="ZRANK" href="/redis/sdks/py/commands/zset/zrank" />
+
+      <Card title="ZREM" href="/redis/sdks/py/commands/zset/zrem" />
+
+      <Card title="ZREMRANGEBYLEX" href="/redis/sdks/py/commands/zset/zremrangebylex" />
+
+      <Card title="ZREMRANGEBYRANK" href="/redis/sdks/py/commands/zset/zremrangebyrank" />
+
+      <Card title="ZREMRANGEBYSCORE" href="/redis/sdks/py/commands/zset/zremrangebyscore" />
+
+      <Card title="ZREVRANK" href="/redis/sdks/py/commands/zset/zrevrank" />
+
+      <Card title="ZSCAN" href="/redis/sdks/py/commands/zset/zscan" />
+
+      <Card title="ZSCORE" href="/redis/sdks/py/commands/zset/zscore" />
+
+      <Card title="ZUNION" href="/redis/sdks/py/commands/zset/zunion" />
+
+      <Card title="ZUNIONSTORE" href="/redis/sdks/py/commands/zset/zunionstore" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="String">
+    <CardGroup cols={3}>
+      <Card title="APPEND" href="/redis/sdks/py/commands/string/append">
+        Append a value to a string stored at key.
+      </Card>
+
+      <Card title="DECR" href="/redis/sdks/py/commands/string/decr">
+        Decrement the integer value of a key by one.
+      </Card>
+
+      <Card title="DECRBY" href="/redis/sdks/py/commands/string/decrby">
+        Decrement the integer value of a key by the given number.
+      </Card>
+
+      <Card title="GET" href="/redis/sdks/py/commands/string/get">
+        Get the value of a key.
+      </Card>
+
+      <Card title="GETDEL" href="/redis/sdks/py/commands/string/getdel">
+        Get the value of a key and delete the key.
+      </Card>
+
+      <Card title="GETRANGE" href="/redis/sdks/py/commands/string/getrange">
+        Get a substring of the string stored at a key.
+      </Card>
+
+      <Card title="GETSET" href="/redis/sdks/py/commands/string/getset">
+        Set the string value of a key and return its old value.
+      </Card>
+
+      <Card title="INCR" href="/redis/sdks/py/commands/string/incr">
+        Increment the integer value of a key by one.
+      </Card>
+
+      <Card title="INCRBY" href="/redis/sdks/py/commands/string/incrby">
+        Increment the integer value of a key by the given amount.
+      </Card>
+
+      <Card title="INCRBYFLOAT" href="/redis/sdks/py/commands/string/incrbyfloat">
+        Increment the float value of a key by the given amount.
+      </Card>
+
+      <Card title="MGET" href="/redis/sdks/py/commands/string/mget">
+        Get the values of all the given keys.
+      </Card>
+
+      <Card title="MSET" href="/redis/sdks/py/commands/string/mset">
+        Set multiple keys to multiple values.
+      </Card>
+
+      <Card title="MSETNX" href="/redis/sdks/py/commands/string/msetnx">
+        Set multiple keys to multiple values, only if none of the keys exist.
+      </Card>
+
+      <Card title="SET" href="/redis/sdks/py/commands/string/set">
+        Set the string value of a key.
+      </Card>
+
+      <Card title="SETRANGE" href="/redis/sdks/py/commands/string/setrange">
+        Overwrite part of a string at key starting at the specified offset.
+      </Card>
+
+      <Card title="STRLEN" href="/redis/sdks/py/commands/string/strlen">
+        Get the length of the value stored in a key.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Stream">
+    <CardGroup cols={3}>
+      <Card title="XACK" href="/redis/sdks/py/commands/stream/xack">
+        Acknowledge one or multiple messages as processed for a consumer group.
+      </Card>
+
+      <Card title="XADD" href="/redis/sdks/py/commands/stream/xadd">
+        Append a new entry to a stream.
+      </Card>
+
+      <Card title="XAUTOCLAIM" href="/redis/sdks/py/commands/stream/xautoclaim">
+        Transfer ownership of pending messages to another consumer automatically.
+      </Card>
+
+      <Card title="XCLAIM" href="/redis/sdks/py/commands/stream/xclaim">
+        Transfer ownership of pending messages to another consumer.
+      </Card>
+
+      <Card title="XDEL" href="/redis/sdks/py/commands/stream/xdel">
+        Remove one or multiple entries from a stream.
+      </Card>
+
+      <Card title="XGROUP CREATE" href="/redis/sdks/py/commands/stream/xgroup_create">
+        Create a new consumer group for a stream.
+      </Card>
+
+      <Card title="XGROUP CREATECONSUMER" href="/redis/sdks/py/commands/stream/xgroup_createconsumer">
+        Create a new consumer in a consumer group.
+      </Card>
+
+      <Card title="XGROUP DELCONSUMER" href="/redis/sdks/py/commands/stream/xgroup_delconsumer">
+        Delete a consumer from a consumer group.
+      </Card>
+
+      <Card title="XGROUP DESTROY" href="/redis/sdks/py/commands/stream/xgroup_destroy">
+        Delete an entire consumer group.
+      </Card>
+
+      <Card title="XGROUP SETID" href="/redis/sdks/py/commands/stream/xgroup_setid">
+        Set the last delivered ID for a consumer group.
+      </Card>
+
+      <Card title="XINFO CONSUMERS" href="/redis/sdks/py/commands/stream/xinfo_consumers">
+        List all consumers in a consumer group.
+      </Card>
+
+      <Card title="XINFO GROUPS" href="/redis/sdks/py/commands/stream/xinfo_groups">
+        List all consumer groups for a stream.
+      </Card>
+
+      <Card title="XLEN" href="/redis/sdks/py/commands/stream/xlen">
+        Get the number of entries in a stream.
+      </Card>
+
+      <Card title="XPENDING" href="/redis/sdks/py/commands/stream/xpending">
+        Get information about pending messages in a consumer group.
+      </Card>
+
+      <Card title="XRANGE" href="/redis/sdks/py/commands/stream/xrange">
+        Get entries from a stream within a range of IDs.
+      </Card>
+
+      <Card title="XREAD" href="/redis/sdks/py/commands/stream/xread">
+        Read data from one or multiple streams.
+      </Card>
+
+      <Card title="XREADGROUP" href="/redis/sdks/py/commands/stream/xreadgroup">
+        Read data from streams as part of a consumer group.
+      </Card>
+
+      <Card title="XREVRANGE" href="/redis/sdks/py/commands/stream/xrevrange">
+        Get entries from a stream within a range of IDs in reverse order.
+      </Card>
+
+      <Card title="XTRIM" href="/redis/sdks/py/commands/stream/xtrim">
+        Trim a stream to a specified size.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Transactions">
+    <Card title="TRANSACTION" href="/redis/sdks/py/features#pipelines-and-transactions">
+      Run multiple commands in a transaction.
+    </Card>
+  </Accordion>
+</AccordionGroup>

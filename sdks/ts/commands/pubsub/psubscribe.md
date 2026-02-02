@@ -1,0 +1,38 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# PSUBSCRIBE
+
+> Subscribe to a channel by patterns/wildcards
+
+## Arguments
+
+<ParamField body="patterns" type="string | string[]" required>
+  The patterns matching channels to publish to.
+</ParamField>
+
+## Response
+
+<ResponseField type="Subscriber" required>
+  A subscriber instance which can subscribe to channels.
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  const subscription = redis.psubscribe(["user:*"]);
+
+  const messages = [];
+  subscription.on("pmessage", (data) => {
+    messages.push(data.message);
+  });
+
+  await redis.publish("user:123", "user:123 message"); // receives
+  await redis.publish("user:456", "user:456 message"); // receives
+  await redis.publish("other:789", "other:789 message"); // doesn't receive
+
+  console.log(messages[0]) // user:123 message
+  console.log(messages[1]) // user:456 message
+  console.log(messages[2]) // undefined
+  ```
+</RequestExample>

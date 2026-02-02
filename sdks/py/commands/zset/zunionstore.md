@@ -1,0 +1,70 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# ZUNIONSTORE
+
+> Writes the union between sets to a new key.
+
+## Arguments
+
+<ParamField body="destination" type="str" required>
+  The key to store the resulting set in.
+</ParamField>
+
+<ParamField body="keys" type="List[str]" required>
+  The keys of the sets to compare.
+</ParamField>
+
+<ParamField body="weights" type="List[float]" default="None">
+  The weights to apply to the sets.
+</ParamField>
+
+<ParamField body="aggregate" type="&#x22;SUM&#x22; | &#x22;MIN&#x22; | &#x22;MAX&#x22;" default="sum">
+  The aggregation function to apply to the sets.
+</ParamField>
+
+<ParamField body="withscores" type="bool" default="false">
+  Whether to include scores in the result.
+</ParamField>
+
+## Response
+
+<ResponseField required>
+  The number of elements in the resulting set.
+</ResponseField>
+
+<RequestExample>
+  ```py Simple theme={"system"}
+  redis.zadd("key1", {"a": 1, "b": 2, "c": 3})
+
+  redis.zadd("key2", {"c": 3, "d": 4, "e": 5})
+
+  result = redis.zunionstore(["key1", "key2"])
+
+  assert result == 5
+  ```
+
+  ```py Aggregation theme={"system"}
+  redis.zadd("key1", {"a": 1, "b": 2, "c": 3})
+
+  redis.zadd("key2", {"a": 3, "b": 4, "c": 5})
+
+  result = redis.zunionstore(["key1", "key2"], withscores=True, aggregate="SUM")
+
+  assert result == [("a", 4), ("b", 6), ("c", 8)]
+  ```
+
+  ```py Weights theme={"system"}
+  redis.zadd("key1", {"a": 1})
+
+  redis.zadd("key2", {"a": 1})
+
+  result = redis.zunionstore(["key1", "key2"],
+                        withscores=True,
+                        aggregate="SUM",
+                        weights=[2, 3])
+
+  assert result == [("a", 5)]
+  ```
+</RequestExample>

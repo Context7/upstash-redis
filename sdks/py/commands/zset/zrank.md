@@ -1,0 +1,37 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# ZRANK
+
+> Returns the rank of a member
+
+## Arguments
+
+<ParamField body="key" type="str" required>
+  The key to get.
+</ParamField>
+
+<ParamField body="member" type="TMember" required>
+  The member to get the rank of.
+</ParamField>
+
+## Response
+
+<ResponseField type="int" required>
+  The rank of the member.
+</ResponseField>
+
+<RequestExample>
+  ```py Example theme={"system"}
+  redis.zadd("myset", {"a": 1, "b": 2, "c": 3})
+
+  assert redis.zrank("myset", "a") == 0
+
+  assert redis.zrank("myset", "d") == None
+
+  assert redis.zrank("myset", "b") == 1
+
+  assert redis.zrank("myset", "c") == 2
+  ```
+</RequestExample>

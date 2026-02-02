@@ -1,0 +1,107 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# ZADD
+
+> Add a member to a sorted set, or update its score if it already exists.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the sorted set.
+</ParamField>
+
+<ParamField body="options">
+  <ParamField body="xx" type="boolean">
+    Only update elements that already exist. Never add elements.
+  </ParamField>
+
+  <ParamField body="nx" type="boolean">
+    Only add new elements. Never update elements.
+  </ParamField>
+
+  <ParamField body="ch" type="boolean">
+    Return the number of elements added or updated.
+  </ParamField>
+
+  <ParamField body="incr" type="boolean">
+    When this option is specified ZADD acts like ZINCRBY. Only one score-element pair can be specified in this mode.
+  </ParamField>
+
+  <ParamField body="gt" type="boolean">
+    Only update existing elements if the new score is greater than the current score. Add element without a check if it does not exist.
+  </ParamField>
+
+  <ParamField body="lt" type="boolean">
+    Only update existing elements if the new score is less than the current score. Add element without a check if it does not exist.
+  </ParamField>
+</ParamField>
+
+## Response
+
+<ResponseField type="integer" required>
+  The number of elements added to the sorted sets, not including elements already existing for which the score was updated.
+
+  If `ch` was specified, the number of elements that were updated.
+
+  If `incr` was specified, the new score of `member`.
+</ResponseField>
+
+<RequestExample>
+  ```ts Simple theme={"system"}
+  await redis.zadd(
+      "key", 
+      { score: 2, member: "member" }, 
+      { score: 3, member: "member2"},
+  );
+  ```
+
+  ```ts XX  theme={"system"}
+  await redis.zadd(
+      "key",
+      { xx: true },
+      { score: 2, member: "member" },
+  )
+  ```
+
+  ```ts NX  theme={"system"}
+  await redis.zadd(
+      "key",
+      { nx: true },
+      { score: 2, member: "member" },
+  )
+  ```
+
+  ```ts CH  theme={"system"}
+  await redis.zadd(
+      "key",
+      { ch: true },
+      { score: 2, member: "member" },
+  )
+  ```
+
+  ```ts INCR  theme={"system"}
+  await redis.zadd(
+      "key",
+      { cincrh: true },
+      { score: 2, member: "member" },
+  )
+  ```
+
+  ```ts GT theme={"system"}
+  await redis.zadd(
+      "key",
+      { gt: true },
+      { score: 2, member: "member" },
+  )
+  ```
+
+  ```ts LT theme={"system"}
+  await redis.zadd(
+      "key",
+      { lt: true },
+      { score: 2, member: "member" },
+  )
+  ```
+</RequestExample>

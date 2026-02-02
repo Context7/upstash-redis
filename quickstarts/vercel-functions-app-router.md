@@ -1,0 +1,61 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# App Router
+
+<Card title="GitHub Repository" icon="github" href="https://github.com/upstash/redis-js/tree/main/examples/vercel-functions-app-router" horizontal>
+  You can find the project source code on GitHub.
+</Card>
+
+### Project Setup
+
+Let's create a new Next.js application with App Router and install `@upstash/redis` package.
+
+```shell  theme={"system"}
+npx create-next-app@latest
+cd my-app
+npm install @upstash/redis
+```
+
+### Database Setup
+
+Create a Redis database using [Upstash Console](https://console.upstash.com) or [Upstash CLI](https://github.com/upstash/cli) and copy the `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` into your `.env` file.
+
+```shell .env theme={"system"}
+UPSTASH_REDIS_REST_URL=<YOUR_URL>
+UPSTASH_REDIS_REST_TOKEN=<YOUR_TOKEN>
+```
+
+### Function Setup
+
+<Info>
+  This is a Vercel Serverless Function. If you want to use Edge Runtime, you can add the `export const runtime = 'edge'` line to this Route Handler.
+</Info>
+
+Create `/app/api/hello/route.ts`:
+
+```ts /app/api/hello/route.ts theme={"system"}
+import { Redis } from "@upstash/redis";
+import { NextResponse } from "next/server";
+
+const redis = Redis.fromEnv();
+
+export async function GET() {
+    const count = await redis.incr("counter");
+    return NextResponse.json({ count });
+}
+
+export const dynamic = 'force-dynamic'
+```
+
+### Run & Deploy
+
+Run the app locally with `npm run dev`, check `http://localhost:3000/api/hello`
+
+Deploy your app with `vercel`
+
+<Info>
+  You can also integrate your Vercel projects with Upstash using Vercel
+  Integration module. Check [this article](../howto/vercelintegration).
+</Info>

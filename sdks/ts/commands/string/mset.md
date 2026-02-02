@@ -1,0 +1,31 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# MSET
+
+> Set multiple keys in one go.
+
+For billing purposes, this counts as a single command.
+
+## Arguments
+
+<ParamField body="params" type="Record<string, TValue>" required>
+  An object where the keys are the keys to set, and the values are the values to set.
+</ParamField>
+
+## Response
+
+<ResponseField type="string" required>
+  "OK"
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  await redis.mset({
+      key1: 1,
+      key2: "hello",
+      key3: { a: 1, b: "hello" },
+  });
+  ```
+</RequestExample>

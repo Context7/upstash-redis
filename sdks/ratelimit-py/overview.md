@@ -1,0 +1,17 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Overview
+
+`upstash-ratelimit` is a connectionless rate limiting library for Python,
+designed to be used in serverless environments such as:
+
+* AWS Lambda
+* Vercel Serverless
+* Google Cloud Functions
+* and other environments where HTTP is preferred over TCP.
+
+The SDK is currently compatible with Python 3.8 and above.
+
+You can find the Github Repository [here](https://github.com/upstash/ratelimit-python).

@@ -1,0 +1,79 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# XPENDING
+
+> Returns information about pending messages in a stream consumer group.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the stream.
+</ParamField>
+
+<ParamField body="group" type="string" required>
+  The consumer group name.
+</ParamField>
+
+<ParamField body="start" type="string" required>
+  The minimum pending ID to return. Use "-" for the first available ID.
+</ParamField>
+
+<ParamField body="end" type="string" required>
+  The maximum pending ID to return. Use "+" for the last available ID.
+</ParamField>
+
+<ParamField body="count" type="number" required>
+  The maximum number of pending messages to return.
+</ParamField>
+
+<ParamField body="options">
+  <Expandable title="properties">
+    <ParamField body="idleTime" type="number">
+      Filter by minimum idle time in milliseconds.
+    </ParamField>
+
+    <ParamField body="consumer" type="string">
+      Filter results by a specific consumer.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+## Response
+
+<ResponseField>
+  Returns an array of pending message details.
+</ResponseField>
+
+<RequestExample>
+  ```ts Summary theme={"system"}
+  const result = await redis.xpending("mystream", "mygroup", "-", "+", 10);
+  ```
+
+  ```ts With idle time filter theme={"system"}
+  const result = await redis.xpending("mystream", "mygroup", "-", "+", 5, {
+    idleTime: 10000
+  });
+  ```
+
+  ```ts Specific consumer filter theme={"system"}
+  const result = await redis.xpending("mystream", "mygroup", "-", "+", 5, {
+    consumer: "consumer1"
+  });
+  ```
+</RequestExample>
+
+<ResponseExample>
+  ```ts  theme={"system"}
+  [
+    2, // total pending count
+    "1638360173533-0", // smallest pending ID
+    "1638360173533-1", // greatest pending ID
+    [
+      ["consumer1", "1"], // consumer and their pending count
+      ["consumer2", "1"]
+    ]
+  ]
+  ```
+</ResponseExample>

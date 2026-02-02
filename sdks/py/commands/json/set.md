@@ -1,0 +1,51 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# JSON.SET
+
+> Set the JSON value at path in key.
+
+## Arguments
+
+<ParamField body="key" type="str" required>
+  The key of the json entry.
+</ParamField>
+
+<ParamField body="path" type="str" required>
+  The path of the value to set.
+</ParamField>
+
+<ParamField body="value" type="TValue" required>
+  The value to set.
+</ParamField>
+
+<ParamField body="nx" type="boolean" default="None">
+  Sets the value at path only if it does not exist.
+</ParamField>
+
+<ParamField body="xx" type="boolean" default="None">
+  Sets the value at path only if it does exist.
+</ParamField>
+
+## Response
+
+<ResponseField type="true" required>
+  Returns true if the value was set.
+</ResponseField>
+
+<RequestExample>
+  ```py Example theme={"system"}
+  redis.json.set(key, "$.path", value)
+  ```
+
+  ```py NX theme={"system"}
+  value = ...
+  redis.json.set(key, "$.path", value, nx=true)
+  ```
+
+  ```py XX theme={"system"}
+  value = ...
+  redis.json.set(key, "$.path", value, xx=true)
+  ```
+</RequestExample>

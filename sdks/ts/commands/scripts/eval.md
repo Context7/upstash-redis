@@ -1,0 +1,38 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# EVAL
+
+> Evaluate a Lua script server side.
+
+## Arguments
+
+<ParamField body="script" type="string" required>
+  The lua script to run.
+</ParamField>
+
+<ParamField body="keys" type="string[]" required>
+  All of the keys accessed in the script
+</ParamField>
+
+<ParamField body="args" type="unknown[]" required>
+  All of the arguments you passed to the script
+</ParamField>
+
+## Response
+
+<ResponseField type="any" required>
+  The result of the script.
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  const script = `
+      return ARGV[1]
+  `
+  const result = await redis.eval(script, [], ["hello"]);
+  console.log(result) // "hello"
+
+  ```
+</RequestExample>

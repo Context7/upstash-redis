@@ -1,0 +1,33 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# XDEL
+
+> Removes the specified entries from a stream, and returns the number of entries deleted.
+
+## Arguments
+
+<ParamField body="key" type="str" required>
+  The key of the stream.
+</ParamField>
+
+<ParamField body="ids" type="str" required>
+  The ID(s) of the message(s) to delete. Can be multiple IDs as separate arguments.
+</ParamField>
+
+## Response
+
+<ResponseField type="int">
+  The number of entries actually deleted from the stream.
+</ResponseField>
+
+<RequestExample>
+  ```py Single message theme={"system"}
+  result = redis.xdel("mystream", "1638360173533-0")
+  ```
+
+  ```py Multiple messages theme={"system"}
+  result = redis.xdel("mystream", "1638360173533-0", "1638360173533-1", "1638360173533-2")
+  ```
+</RequestExample>

@@ -1,0 +1,68 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# XREVRANGE
+
+> Returns stream entries matching a given range of IDs in reverse order.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the stream.
+</ParamField>
+
+<ParamField body="end" type="string" required>
+  The stream entry ID to end at (highest ID).
+</ParamField>
+
+<ParamField body="start" type="string" required>
+  The stream entry ID to start from (lowest ID).
+</ParamField>
+
+<ParamField body="count" type="number">
+  The maximum number of entries to return.
+</ParamField>
+
+## Response
+
+<ResponseField type="Record<string, Record<string, unknown>>">
+  An object of stream entries in reverse chronological order, keyed by their stream ID.
+</ResponseField>
+
+<RequestExample>
+  ```ts All entries (reverse order) theme={"system"}
+  const result = await redis.xrevrange("mystream", "+", "-");
+  ```
+
+  ```ts Limited count theme={"system"}
+  const result = await redis.xrevrange("mystream", "+", "-", 2);
+  ```
+
+  ```ts Specific range theme={"system"}
+  const result = await redis.xrevrange(
+    "mystream",
+    "1638360173533-3", 
+    "1638360173533-1"
+  );
+  ```
+</RequestExample>
+
+<ResponseExample>
+  ```ts  theme={"system"}
+  {
+    "1638360173533-4": {
+      "field1": "value5",
+      "field2": "value6"
+    },
+    "1638360173533-3": {
+      "field1": "value3", 
+      "field2": "value4"
+    },
+    "1638360173533-0": {
+      "field1": "value1",
+      "field2": "value2"
+    }
+  }
+  ```
+</ResponseExample>

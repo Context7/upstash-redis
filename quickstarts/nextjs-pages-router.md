@@ -1,0 +1,65 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Pages Router
+
+<Card title="GitHub Repository" icon="github" href="https://github.com/upstash/redis-js/tree/main/examples/nextjs-pages-router" horizontal>
+  You can find the project source code on GitHub.
+</Card>
+
+### Project Setup
+
+Let's create a new Next.js application with Pages Router and install `@upstash/redis` package.
+
+```shell  theme={"system"}
+npx create-next-app@latest
+cd my-app
+npm install @upstash/redis
+```
+
+### Database Setup
+
+Create a Redis database using [Upstash Console](https://console.upstash.com) or [Upstash CLI](https://github.com/upstash/cli) and copy the `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` into your `.env` file.
+
+```shell .env theme={"system"}
+UPSTASH_REDIS_REST_URL=<YOUR_URL>
+UPSTASH_REDIS_REST_TOKEN=<YOUR_TOKEN>
+```
+
+### Home Page Setup
+
+Update `/pages/index.tsx`:
+
+```tsx /pages/index.tsx theme={"system"}
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+import { Redis } from "@upstash/redis";
+
+const redis = Redis.fromEnv();
+
+export const getServerSideProps = (async () => {
+  const count = await redis.incr("counter");
+  return { props: { count } }
+}) satisfies GetServerSideProps<{ count: number }>
+
+export default function Home({
+  count,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  return (
+    <div className="flex h-screen w-screen items-center justify-center">
+      <h1 className="text-4xl font-bold">Counter: {count}</h1>
+    </div>
+  )
+}
+```
+
+### Run & Deploy
+
+Run the app locally with `npm run dev`, check `http://localhost:3000/`
+
+Deploy your app with `vercel`
+
+<Info>
+  You can also integrate your Vercel projects with Upstash using Vercel
+  Integration module. Check [this article](../howto/vercelintegration).
+</Info>

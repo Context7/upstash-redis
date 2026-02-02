@@ -1,0 +1,39 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# LRANGE
+
+> Returns the specified elements of the list stored at key.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the list.
+</ParamField>
+
+<ParamField body="start" type="integer" required>
+  The starting index of the range to return.
+
+  Use negative numbers to specify offsets starting at the end of the list.
+</ParamField>
+
+<ParamField body="end" type="integer" required>
+  The ending index of the range to return.
+
+  Use negative numbers to specify offsets starting at the end of the list.
+</ParamField>
+
+## Response
+
+<ResponseField type="TValue[]" required>
+  The list of elements in the specified range.
+</ResponseField>
+
+<RequestExample>
+  ```ts Example  theme={"system"}
+  await redis.lpush("key", "a", "b", "c"); 
+  const elements = await redis.lrange("key", 1, 2); 
+  console.log(elements) // ["b", "c"]
+  ```
+</RequestExample>

@@ -1,0 +1,37 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# LTRIM
+
+> Trim a list to the specified range
+
+## Arguments
+
+<ParamField body="key" type="str" required>
+  The key of the list.
+</ParamField>
+
+<ParamField body="start" type="int" required>
+  The index of the first element to keep.
+</ParamField>
+
+<ParamField body="stop" type="int" required>
+  The index of the first element to keep.
+</ParamField>
+
+## Response
+
+<ResponseField type="bool" required>
+  Returns `True` if the list was trimmed, `False` otherwise.
+</ResponseField>
+
+<RequestExample>
+  ```py Example  theme={"system"}
+  redis.rpush("mylist", "one", "two", "three")
+
+  assert redis.ltrim("mylist", 0, 1) == True
+
+  assert redis.lrange("mylist", 0, -1) == ["one", "two"]
+  ```
+</RequestExample>

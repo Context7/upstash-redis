@@ -1,0 +1,36 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# LSET
+
+> Set a value at a specific index.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the list.
+</ParamField>
+
+<ParamField body="index" type="number" required>
+  At which index to set the value.
+</ParamField>
+
+<ParamField body="data" type="TValue" required>
+  The value to set.
+</ParamField>
+
+## Response
+
+<ResponseField type="OK" required>
+  `OK`
+</ResponseField>
+
+<RequestExample>
+  ```ts Example  theme={"system"}
+  await redis.lpush("key", "a", "b", "c"); 
+  await redis.lset("key", 1, "d"); 
+
+  // list is now ["a", "d", "c"]
+  ```
+</RequestExample>

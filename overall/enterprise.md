@@ -1,0 +1,103 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Prod Pack & Enterprise
+
+Upstash has Prod Pack and Enterprise plans for customers with critical production workloads. Prod Pack and Enterprise plans include additional monitoring and security features in addition to higher capacity limits and more powerful resources
+
+Prod Pack -> Per database
+
+Enterprise contract -> Per account
+
+Prod Pack are an add-on per database available to both pay-as-you-go and fixed-price plans, not per account. You can have databases on different plans in the same account and each is charged separately. Meanwhile, Enterprise plans are per account, not per database. All of your databases can be included in the same Enterprise plan covering all of your databases.
+
+All features of Prod Pack and Enterprise plan for Upstash Redis are detailed below.
+
+## How to Upgrade
+
+You can activate Prod Pack on the database details page in the [Upstash Console](https://upstash.com/dashboard/redis). For the Enterprise plan, please create a request through the or contact [support@upstash.com](mailto:support@upstash.com).
+
+# Prod Pack Features
+
+These features are available on databases with Prod Pack.
+
+### Uptime SLA
+
+All Prod Pack databases come with an SLA guaranteeing 99.99% uptime. For mission-critical data where uptime is crucial, we recommend Prod Pack plans. Learn more about [Uptime SLA](/common/help/sla).
+
+### SOC-2 Type 2 Compliance & Report
+
+Upstash Redis is SOC-2 Type 2 compliant with Prod Pack. Once you enable Prod Pack, you can request access to the report by going to [Upstash Trust Center](https://trust.upstash.com/) or contacting [support@upstash.com](mailto:support@upstash.com).
+
+### RBAC
+
+Role-Based Access Control (RBAC) is a security model that manages database access. You can create multiple users with different roles to control their actions on your databases.
+
+We recommend using RBAC if your database is accessible to multiple developers.
+
+### High Availability for Read Regions
+
+With Prod Pack add-on, read regions of your database are [highly available](/redis/features/replication#high-availability). This ensures that if one read replica fails, you can read from another read replica in the same region without any additional latency.
+
+### More Backup Capability
+
+Backups up to 3 days are possible with the Prod Pack add-on.
+
+### Encryption at Rest
+
+Encrypts the block storage where your data is persisted and stored.
+
+### Prometheus Metrics
+
+Prometheus is an open-source monitoring system widely used for monitoring and alerting in cloud-native and containerized environments.
+
+Upstash Prod Pack and Enterprise plans offer Prometheus metrics collection, enabling you to monitor your Redis databases with Prometheus in addition to console metrics. Learn more about [Prometheus integration](/redis/integrations/prometheus).
+
+### Datadog Integration
+
+Upstash Prod Pack and Enterprise plans include integration with Datadog, allowing you to monitor your Redis databases with Datadog in addition to console metrics. Learn more about [Datadog integration](/redis/howto/datadog).
+
+### More metrics on the Console
+
+Max interval of the metrics that are available on the Upstash Console increases from one week to one month for databases with Prod Pack.
+
+# Enterprise Features
+
+All Prod Pack features are included in the Enterprise plan. Additionally, Enterprise plans include:
+
+### Custom Limits
+
+Get a custom-tailored plan for your Upstash Redis databases to handle the growing demands of your business at any scale, such as 100K+ commands per second, unlimited bandwidth, and higher storage limits.
+
+### SAML SSO
+
+Single Sign-On (SSO) allows you to use your existing identity provider to authenticate users for your Upstash account. This feature is available upon request for Enterprise customers.
+
+### Unlimited Database Count
+
+Enterprise plans include unlimited database count, allowing you to scale your infrastructure without database count restrictions.
+
+### Professional Support
+
+All of the databases in the Enterprise plan get access to our professional support. The plan includes response time SLAs and priority access to our support team. Check out the [support page](/common/help/prosupport) for more details.
+
+### Dedicated Resources for Isolation
+
+Enterprise customers receive dedicated resources to ensure isolation and consistent performance for their database workloads.
+
+### VPC Peering and Private Links
+
+VPC Peering and Private Links enable you to connect your databases to your VPCs and other private networks, enhancing isolation and security while reducing data transfer costs. This feature is available upon request for Enterprise customers.
+
+### Configurable Backups
+
+Hourly backups with customizable retention are available upon request for Enterprise customers.
+
+### Access Logs
+
+Enterprise customers can request access logs to the databases.
+
+### HIPAA Compliance
+
+A Business Associate Agreement (BAA) and HIPAA compliance enablement is available with our Enterprise plan.

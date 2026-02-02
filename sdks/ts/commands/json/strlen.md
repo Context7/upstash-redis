@@ -1,0 +1,29 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# JSON.STRLEN
+
+> Report the length of the JSON String at path in key
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the json entry.
+</ParamField>
+
+<ParamField body="path" type="string" required>
+  The path of the array. `$` is the root.
+</ParamField>
+
+## Response
+
+<ResponseField type="array" required>
+  JSON.STRLEN returns by recursive descent an array of integer replies for each path, the array's length, or nil, if the matching JSON value is not a string.
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  await redis.json.strlen("key", "$.path.to.str", "a");
+  ```
+</RequestExample>

@@ -1,0 +1,43 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# RENAMENX
+
+> Rename a key if it does not already exist.
+
+Renames a key, only if the new key does not exist.
+
+Throws an exception if the key does not exist.
+
+## Arguments
+
+<ParamField body="source" type="str" required>
+  The original key.
+</ParamField>
+
+<ParamField body="destination" type="str" required>
+  A new name for the key.
+</ParamField>
+
+## Response
+
+<ResponseField type="bool" required>
+  `True` if key was renamed
+</ResponseField>
+
+<RequestExample>
+  ```py Example theme={"system"}
+  redis.set("key1", "Hello")
+  redis.set("key2", "World")
+
+  # Rename failed because "key2" already exists.
+  assert redis.renamenx("key1", "key2") == False
+
+  assert redis.renamenx("key1", "key3") == True
+
+  assert redis.get("key1") is None
+  assert redis.get("key2") == "World"
+  assert redis.get("key3") == "Hello"
+  ```
+</RequestExample>

@@ -1,0 +1,70 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# XREADGROUP
+
+> Reads data from a stream as part of a consumer group.
+
+## Arguments
+
+<ParamField body="group" type="str" required>
+  The consumer group name.
+</ParamField>
+
+<ParamField body="consumer" type="str" required>
+  The consumer name within the group.
+</ParamField>
+
+<ParamField body="streams" type="Dict[str, str]" required>
+  A dictionary mapping stream keys to their starting IDs.
+  Use ">" to read messages never delivered to any consumer in the group.
+</ParamField>
+
+<ParamField body="count" type="int">
+  The maximum number of messages to return per stream.
+</ParamField>
+
+<ParamField body="noack" type="bool">
+  Don't add messages to the pending entries list (messages won't need acknowledgment).
+</ParamField>
+
+## Response
+
+<ResponseField type="List[List[Any]]">
+  Returns a list where each element represents a stream and contains:
+
+  * The stream key
+  * A list of messages (ID and field-value pairs)
+
+  Returns empty list if no data is available.
+</ResponseField>
+
+<RequestExample>
+  ```py Read new messages theme={"system"}
+  result = redis.xreadgroup("mygroup", "consumer1", {"mystream": ">"})
+  ```
+
+  ```py Multiple streams theme={"system"}
+  result = redis.xreadgroup("mygroup", "consumer1", {"stream1": ">", "stream2": "0-0"})
+  ```
+
+  ```py With count and noack theme={"system"}
+  result = redis.xreadgroup("mygroup", "consumer1", {"mystream": ">"}, count=5, noack=True)
+  ```
+
+  ```py Read pending messages theme={"system"}
+  result = redis.xreadgroup("mygroup", "consumer1", {"mystream": "0"})
+  ```
+</RequestExample>
+
+<ResponseExample>
+  ```py  theme={"system"}
+  [
+    ["mystream", [
+      ["1638360173533-0", ["field", "value1"]],
+      ["1638360173533-1", ["field", "value2"]]
+    ]]
+  ]
+  ```
+</ResponseExample>

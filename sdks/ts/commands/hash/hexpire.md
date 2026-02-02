@@ -1,0 +1,52 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# HEXPIRE
+
+> Sets an expiration time for one or more fields in a hash.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the hash.
+</ParamField>
+
+<ParamField body="field" type="string | number | (string | number)[]" required>
+  The field or fields to set an expiration time for.
+</ParamField>
+
+<ParamField body="seconds" type="number" required>
+  The time-to-live (TTL) in seconds.
+</ParamField>
+
+<ParamField body="option" type="string" optional>
+  Optional condition for setting the expiration:
+
+  * `NX`: Set the expiration only if the field does not already have an expiration.
+  * `XX`: Set the expiration only if the field already has an expiration.
+  * `GT`: Set the expiration only if the new TTL is greater than the current TTL.
+  * `LT`: Set the expiration only if the new TTL is less than the current TTL.
+</ParamField>
+
+## Response
+
+<ResponseField type="number[]" required>
+  A list of integers indicating whether the expiry was successfully set.
+
+  * `-2` if the field does not exist in the hash or if key doesn't exist.
+  * `0` if the expiration was not set due to the condition.
+  * `1` if the expiration was successfully set.
+  * `2` if called with 0 seconds/milliseconds or a past Unix time.
+
+  For more details, see [HEXPIRE documentation](https://redis.io/commands/hexpire).
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  await redis.hset("my-key", "my-field", "my-value");
+  const expirationSet = await redis.hexpire("my-key", "my-field", 1);
+
+  console.log(expirationSet); // 1
+  ```
+</RequestExample>

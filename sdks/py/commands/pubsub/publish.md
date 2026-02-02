@@ -1,0 +1,29 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# PUBLISH
+
+> Publish a message to a channel
+
+## Arguments
+
+<ParamField body="channel" type="str" required>
+  The channel to publish to.
+</ParamField>
+
+<ParamField body="message" type="str">
+  The message to publish.
+</ParamField>
+
+## Response
+
+<ResponseField type="int" required>
+  The number of clients who received the message.
+</ResponseField>
+
+<RequestExample>
+  ```py Example theme={"system"}
+  listeners = redis.publish("my-topic", "my-message")
+  ```
+</RequestExample>

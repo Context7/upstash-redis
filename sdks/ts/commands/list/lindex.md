@@ -1,0 +1,33 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# LINDEX
+
+> Returns the element at index index in the list stored at key.
+
+The index is zero-based, so 0 means the first element, 1 the second element and so on. Negative indices can be used to designate elements starting at the tail of the list.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the list.
+</ParamField>
+
+<ParamField body="index" type="number" required>
+  The index of the element to return, zero-based.
+</ParamField>
+
+## Response
+
+<ResponseField type="TValue | null" required>
+  The value of the element at index index in the list. If the index is out of range, `null` is returned.
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  await redis.rpush("key", "a", "b", "c");
+  const element = await redis.lindex("key", 0);
+  console.log(element); // "a"
+  ```
+</RequestExample>

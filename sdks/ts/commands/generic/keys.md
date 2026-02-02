@@ -1,0 +1,35 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# KEYS
+
+> Returns all keys matching pattern.
+
+<Warning>
+  This command can block the database for an extended period, especially with large datasets. We recommend using [SCAN](/redis/sdks/ts/commands/generic/scan) instead for production environments.
+
+  This command will return an error for databases containing more than 100,000 entries.
+</Warning>
+
+## Arguments
+
+<ParamField body="match" type="string" required>
+  A glob-style pattern. Use `*` to match all keys.
+</ParamField>
+
+## Response
+
+<ResponseField type="string[]" required>
+  Array of keys matching the pattern.
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  const keys = await redis.keys("prefix*");
+  ```
+
+  ```ts Match All theme={"system"}
+  const keys = await redis.keys("*");
+  ```
+</RequestExample>

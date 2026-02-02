@@ -1,0 +1,37 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# BullMQ with Upstash Redis
+
+You can use BullMQ and Bull with Upstash Redis. BullMQ is a Node.js queue library that is built on top of Bull. It is a Redis-based queue library so you can use Upstash Redis as its storage.
+
+## Install
+
+```bash  theme={"system"}
+npm install bullmq upstash-redis
+```
+
+## Usage
+
+```javascript  theme={"system"}
+import { Queue } from 'bullmq';
+
+const myQueue = new Queue('foo', { connection: {
+        host: "UPSTASH_REDIS_ENDPOINT",
+        port: 6379,
+        password: "UPSTASH_REDIS_PASSWORD",
+        tls: {}
+    }});
+
+async function addJobs() {
+    await myQueue.add('myJobName', { foo: 'bar' });
+    await myQueue.add('myJobName', { qux: 'baz' });
+}
+
+await addJobs();
+```
+
+## Billing Optimization
+
+BullMQ accesses Redis regularly, even when there is no queue activity. This can incur extra costs because Upstash charges per request on the Pay-As-You-Go plan. With the introduction of [our Fixed plans](/redis/overall/pricing#all-plans-and-limits), **we recommend switching to a Fixed plan to avoid increased command count and high costs in BullMQ use cases.**

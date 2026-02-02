@@ -1,0 +1,37 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# JSON.ARRPOP
+
+> Remove and return an element from the index in the array. By default the last element from an array is popped.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the json entry.
+</ParamField>
+
+<ParamField body="path" type="string">
+  The path of the array.
+</ParamField>
+
+<ParamField body="index" type="number" default={-1}>
+  The index of the element to pop.
+</ParamField>
+
+## Response
+
+<ResponseField type="(TValue | null)[]" required>
+  The popped element or null if the array is empty.
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  const element = await redis.json.arrpop("key", "$.path.to.array");
+  ```
+
+  ```ts First theme={"system"}
+  const firstElement = await redis.json.arrpop("key", "$.path.to.array", 0);
+  ```
+</RequestExample>

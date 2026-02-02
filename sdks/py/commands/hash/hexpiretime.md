@@ -1,0 +1,37 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# HEXPIRETIME
+
+> Retrieves the expiration time of field(s) in a hash in seconds.
+
+## Arguments
+
+<ParamField body="key" type="str" required>
+  The key of the hash.
+</ParamField>
+
+<ParamField body="fields" type="Union[str, List[str]]" required>
+  The field or list of fields to retrieve the expiration time for.
+</ParamField>
+
+## Response
+
+<ResponseField type="List[int]" required>
+  A list of integers representing the expiration time in seconds since the Unix epoch.
+
+  * `-2` if the field does not exist in the hash or if the key doesn't exist.
+  * `-1` if the field exists but has no associated expiration.
+
+  For more details, see [HEXPIRETIME documentation](https://redis.io/commands/hexpiretime).
+</ResponseField>
+
+<RequestExample>
+  ```py Example theme={"system"}
+  redis.hset(hash_name, field, value)
+  redis.hexpireat(hash_name, field, int(time.time()) + 10)
+
+  assert redis.hexpiretime(hash_name, field) == [1697059200]
+  ```
+</RequestExample>

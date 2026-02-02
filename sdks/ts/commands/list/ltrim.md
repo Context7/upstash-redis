@@ -1,0 +1,35 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# LTRIM
+
+> Trim a list to the specified range
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the list.
+</ParamField>
+
+<ParamField body="start" type="number" required>
+  The index of the first element to keep.
+</ParamField>
+
+<ParamField body="end" type="TValue" required>
+  The index of the first element to keep.
+</ParamField>
+
+## Response
+
+<ResponseField type="OK" required>
+  `OK`
+</ResponseField>
+
+<RequestExample>
+  ```ts Example  theme={"system"}
+  await redis.lpush("key", "a", "b", "c", "d"); 
+  await redis.ltrim("key", 1, 2); 
+  // the list is now ["b", "c"]
+  ```
+</RequestExample>

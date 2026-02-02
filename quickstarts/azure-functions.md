@@ -1,0 +1,111 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Azure Functions
+
+<Card title="GitHub Repository" icon="github" href="https://github.com/upstash/redis-js/tree/main/examples/azure-functions" horizontal>
+  You can find the project source code on GitHub.
+</Card>
+
+### Prerequisites
+
+1. [Create an Azure account.](https://azure.microsoft.com/en-us/free/)
+2. [Set up Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+3. [Install the Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-typescript)
+
+### Project Setup
+
+Initialize the project:
+
+```shell  theme={"system"}
+func init --typescript
+```
+
+Install `@upstash/redis`
+
+```shell  theme={"system"}
+npm install @upstash/redis
+```
+
+### Counter Function Setup
+
+Create a new function from template.
+
+```shell  theme={"system"}
+func new --name CounterFunction --template "HTTP trigger" --authlevel "anonymous"
+```
+
+Update `/src/functions/CounterFunction.ts`
+
+```ts /src/functions/CounterFunction.ts theme={"system"}
+import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
+import { Redis } from "@upstash/redis";
+
+const redis = new Redis({
+    url: process.env.UPSTASH_REDIS_REST_URL,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN
+});
+
+export async function CounterFunction(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+    const count = await redis.incr("counter");
+
+    return { status: 200, body: `Counter: ${count}` };
+};
+
+app.http('CounterFunction', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    handler: CounterFunction
+});
+```
+
+### Create Azure Resources
+
+You can use the command below to find the `name` of a region near you.
+
+```shell  theme={"system"}
+az account list-locations
+```
+
+Create a resource group.
+
+```shell  theme={"system"}
+az group create --name AzureFunctionsQuickstart-rg --location <REGION>
+```
+
+Create a storage account.
+
+```shell  theme={"system"}
+az storage account create --name <STORAGE_NAME> --location <REGION> --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS --allow-blob-public-access false
+```
+
+Create your Function App.
+
+```shell  theme={"system"}
+az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime node --runtime-version 18 --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
+```
+
+### Database Setup
+
+Create a Redis database using [Upstash Console](https://console.upstash.com) or [Upstash CLI](https://github.com/upstash/cli) and set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` in your Function App's settings.
+
+```shell  theme={"system"}
+az functionapp config appsettings set --name <APP_NAME> --resource-group AzureFunctionsQuickstart-rg --settings UPSTASH_REDIS_REST_URL=<YOUR_URL> UPSTASH_REDIS_REST_TOKEN=<YOUR_TOKEN>
+```
+
+### Deploy
+
+Take a build of your application.
+
+```shell  theme={"system"}
+npm run build
+```
+
+Publish your application.
+
+```shell  theme={"system"}
+func azure functionapp publish <APP_NAME>
+```
+
+Visit the given Invoke URL.

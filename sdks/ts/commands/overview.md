@@ -1,0 +1,545 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Overview
+
+> Available Commands in @upstash/redis
+
+<AccordionGroup>
+  <Accordion title="Auth">
+    <CardGroup cols={3}>
+      <Card title="ECHO" href="/redis/sdks/ts/commands/auth/echo">
+        Echo the given string.
+      </Card>
+
+      <Card title="PING" href="/redis/sdks/ts/commands/auth/ping">
+        Ping the server.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Bitmap">
+    <CardGroup cols={3}>
+      <Card title="BITCOUNT" href="/redis/sdks/ts/commands/bitmap/bitcount">
+        Count set bits in a string.
+      </Card>
+
+      <Card title="BITOP" href="/redis/sdks/ts/commands/bitmap/bitop">
+        Perform bitwise operations between strings.
+      </Card>
+
+      <Card title="BITPOS" href="/redis/sdks/ts/commands/bitmap/bitpos">
+        Find first bit set or clear in a string.
+      </Card>
+
+      <Card title="GETBIT" href="/redis/sdks/ts/commands/bitmap/getbit">
+        Returns the bit value at offset in the string value stored at key.
+      </Card>
+
+      <Card title="SETBIT" href="/redis/sdks/ts/commands/bitmap/setbit">
+        Sets or clears the bit at offset in the string value stored at key.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Functions">
+    <CardGroup cols={3}>
+      <Card title="FCALL" href="/redis/sdks/ts/commands/functions/call">
+        Invoke a redis function.
+      </Card>
+
+      <Card title="FCALL_RO" href="/redis/sdks/ts/commands/functions/call_ro">
+        Invoke a read-only redis function.
+      </Card>
+
+      <Card title="FUNCTION DELETE" href="/redis/sdks/ts/commands/functions/delete">
+        Delete a library and all its functions.
+      </Card>
+
+      <Card title="FUNCTION FLUSH" href="/redis/sdks/ts/commands/functions/flush">
+        Delete all the libraries and functions.
+      </Card>
+
+      <Card title="FUNCTION LIST" href="/redis/sdks/ts/commands/functions/list">
+        List information about all the libraries.
+      </Card>
+
+      <Card title="FUNCTION LOAD" href="/redis/sdks/ts/commands/functions/load">
+        Load a library to Redis.
+      </Card>
+
+      <Card title="FUNCTION STATS" href="/redis/sdks/ts/commands/functions/stats">
+        Returns the number of registered functions and libraries.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Generic">
+    <CardGroup cols={3}>
+      <Card title="DEL" href="/redis/sdks/ts/commands/generic/del">
+        Delete one or multiple keys.
+      </Card>
+
+      <Card title="EXISTS" href="/redis/sdks/ts/commands/generic/exists">
+        Determine if a key exists.
+      </Card>
+
+      <Card title="EXPIRE" href="/redis/sdks/ts/commands/generic/expire">
+        Set a key's time to live in seconds.
+      </Card>
+
+      <Card title="EXPIREAT" href="/redis/sdks/ts/commands/generic/expireat">
+        Set the expiration for a key as a UNIX timestamp.
+      </Card>
+
+      <Card title="KEYS" href="/redis/sdks/ts/commands/generic/keys">
+        Find all keys matching the given pattern.
+      </Card>
+
+      <Card title="PERSIST" href="/redis/sdks/ts/commands/generic/persist">
+        Remove the expiration from a key.
+      </Card>
+
+      <Card title="PEXPIRE" href="/redis/sdks/ts/commands/generic/pexpire">
+        Set a key's time to live in milliseconds.
+      </Card>
+
+      <Card title="PEXPIREAT" href="/redis/sdks/ts/commands/generic/pexpireat">
+        Set the expiration for a key as a UNIX timestamp specified in milliseconds.
+      </Card>
+
+      <Card title="PTTL" href="/redis/sdks/ts/commands/generic/pttl">
+        Get the time to live for a key in milliseconds.
+      </Card>
+
+      <Card title="RANDOMKEY" href="/redis/sdks/ts/commands/generic/randomkey">
+        Return a random key from the keyspace.
+      </Card>
+
+      <Card title="RENAME" href="/redis/sdks/ts/commands/generic/rename">
+        Rename a key.
+      </Card>
+
+      <Card title="RENAMENX" href="/redis/sdks/ts/commands/generic/renamenx">
+        Rename a key, only if the new key does not exist.
+      </Card>
+
+      <Card title="SCAN" href="/redis/sdks/ts/commands/generic/scan">
+        Incrementally iterate the keys space.
+      </Card>
+
+      <Card title="TOUCH" href="/redis/sdks/ts/commands/generic/touch">
+        Alters the last access time of a key(s). Returns the number of existing keys specified.
+      </Card>
+
+      <Card title="TTL" href="/redis/sdks/ts/commands/generic/ttl">
+        Get the time to live for a key.
+      </Card>
+
+      <Card title="TYPE" href="/redis/sdks/ts/commands/generic/type">
+        Determine the type stored at key.
+      </Card>
+
+      <Card title="UNLINK" href="/redis/sdks/ts/commands/generic/unlink">
+        Delete one or more keys.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Hash">
+    <CardGroup cols={3}>
+      <Card title="HDEL" href="/redis/sdks/ts/commands/hash/hdel" />
+
+      <Card title="HEXISTS" href="/redis/sdks/ts/commands/hash/hexists" />
+
+      <Card title="HEXPIRE" href="/redis/sdks/ts/commands/hash/hexpire" />
+
+      <Card title="HEXPIREAT" href="/redis/sdks/ts/commands/hash/hexpireat" />
+
+      <Card title="HEXPIRETIME" href="/redis/sdks/ts/commands/hash/hexpiretime" />
+
+      <Card title="HGET" href="/redis/sdks/ts/commands/hash/hget" />
+
+      <Card title="HGETALL" href="/redis/sdks/ts/commands/hash/hgetall" />
+
+      <Card title="HINCRBY" href="/redis/sdks/ts/commands/hash/hincrby" />
+
+      <Card title="HINCRBYFLOAT" href="/redis/sdks/ts/commands/hash/hincrbyfloat" />
+
+      <Card title="HKEYS" href="/redis/sdks/ts/commands/hash/hkeys" />
+
+      <Card title="HLEN" href="/redis/sdks/ts/commands/hash/hlen" />
+
+      <Card title="HMGET" href="/redis/sdks/ts/commands/hash/hmget" />
+
+      <Card title="HPERSIST" href="/redis/sdks/ts/commands/hash/hpersist" />
+
+      <Card title="HPEXPIRE" href="/redis/sdks/ts/commands/hash/hpexpire" />
+
+      <Card title="HPEXPIREAT" href="/redis/sdks/ts/commands/hash/hpexpireat" />
+
+      <Card title="HPEXPIRETIME" href="/redis/sdks/ts/commands/hash/hpexpiretime" />
+
+      <Card title="HPTTL" href="/redis/sdks/ts/commands/hash/hpttl" />
+
+      <Card title="HRANDFIELD" href="/redis/sdks/ts/commands/hash/hrandfield" />
+
+      <Card title="HSCAN" href="/redis/sdks/ts/commands/hash/hscan" />
+
+      <Card title="HSET" href="/redis/sdks/ts/commands/hash/hset" />
+
+      <Card title="HSETNX" href="/redis/sdks/ts/commands/hash/hsetnx" />
+
+      <Card title="HSTRLEN" href="/redis/sdks/ts/commands/hash/hstrlen" />
+
+      <Card title="HTTL" href="/redis/sdks/ts/commands/hash/httl" />
+
+      <Card title="HVALS" href="/redis/sdks/ts/commands/hash/hvals" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="JSON">
+    <CardGroup cols={3}>
+      <Card title="ARRAPPEND" href="/redis/sdks/ts/commands/json/arrappend" />
+
+      <Card title="ARRINDEX" href="/redis/sdks/ts/commands/json/arrindex" />
+
+      <Card title="ARRINSERT" href="/redis/sdks/ts/commands/json/arrinsert" />
+
+      <Card title="ARRLEN" href="/redis/sdks/ts/commands/json/arrlen" />
+
+      <Card title="ARRPOP" href="/redis/sdks/ts/commands/json/arrpop" />
+
+      <Card title="ARRTRIM" href="/redis/sdks/ts/commands/json/arrtrim" />
+
+      <Card title="CLEAR" href="/redis/sdks/ts/commands/json/clear" />
+
+      <Card title="DEL" href="/redis/sdks/ts/commands/json/del" />
+
+      <Card title="FORGET" href="/redis/sdks/ts/commands/json/forget" />
+
+      <Card title="GET" href="/redis/sdks/ts/commands/json/get" />
+
+      <Card title="MGET" href="/redis/sdks/ts/commands/json/mget" />
+
+      <Card title="MSET" href="/redis/sdks/ts/commands/json/mset" />
+
+      <Card title="MERGE" href="/redis/sdks/ts/commands/json/merge" />
+
+      <Card title="NUMINCRBY" href="/redis/sdks/ts/commands/json/numincrby" />
+
+      <Card title="NUMMULTBY" href="/redis/sdks/ts/commands/json/nummultby" />
+
+      <Card title="OBJKEYS" href="/redis/sdks/ts/commands/json/objkeys" />
+
+      <Card title="OBJLEN" href="/redis/sdks/ts/commands/json/objlen" />
+
+      <Card title="SET" href="/redis/sdks/ts/commands/json/set" />
+
+      <Card title="STRAPPEND" href="/redis/sdks/ts/commands/json/strappend" />
+
+      <Card title="STRLEN" href="/redis/sdks/ts/commands/json/strlen" />
+
+      <Card title="TOGGLE" href="/redis/sdks/ts/commands/json/toggle" />
+
+      <Card title="TYPE" href="/redis/sdks/ts/commands/json/type" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="List">
+    <CardGroup cols={3}>
+      <Card title="LINDEX" href="/redis/sdks/ts/commands/list/lindex" />
+
+      <Card title="LINSERT" href="/redis/sdks/ts/commands/list/linsert" />
+
+      <Card title="LLEN" href="/redis/sdks/ts/commands/list/llen" />
+
+      <Card title="LMOVE" href="/redis/sdks/ts/commands/list/lmove" />
+
+      <Card title="LPOP" href="/redis/sdks/ts/commands/list/lpop" />
+
+      <Card title="LPOS" href="/redis/sdks/ts/commands/list/lpos" />
+
+      <Card title="LPUSH" href="/redis/sdks/ts/commands/list/lpush" />
+
+      <Card title="LPUSHX" href="/redis/sdks/ts/commands/list/lpushx" />
+
+      <Card title="LRANGE" href="/redis/sdks/ts/commands/list/lrange" />
+
+      <Card title="LREM" href="/redis/sdks/ts/commands/list/lrem" />
+
+      <Card title="LSET" href="/redis/sdks/ts/commands/list/lset" />
+
+      <Card title="LTRIM" href="/redis/sdks/ts/commands/list/ltrim" />
+
+      <Card title="RPOP" href="/redis/sdks/ts/commands/list/rpop" />
+
+      <Card title="RPUSH" href="/redis/sdks/ts/commands/list/rpush" />
+
+      <Card title="RPUSHX" href="/redis/sdks/ts/commands/list/rpushx" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="PubSub">
+    <CardGroup cols={3}>
+      <Card title="PUBLISH" href="/redis/sdks/ts/commands/pubsub/publish">
+        Publish messages to many clients
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Scripts">
+    <CardGroup cols={3}>
+      <Card title="EVAL" href="/redis/sdks/ts/commands/scripts/eval" />
+
+      <Card title="EVAL_RO" href="/redis/sdks/ts/commands/scripts/eval_ro" />
+
+      <Card title="EVALSHA" href="/redis/sdks/ts/commands/scripts/evalsha" />
+
+      <Card title="EVALSHA_RO" href="/redis/sdks/ts/commands/scripts/evalsha_ro" />
+
+      <Card title="SCRIPT EXISTS" href="/redis/sdks/ts/commands/scripts/script_exists" />
+
+      <Card title="SCRIPT FLUSH" href="/redis/sdks/ts/commands/scripts/script_flush" />
+
+      <Card title="SCRIPT LOAD" href="/redis/sdks/ts/commands/scripts/script_load" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Server">
+    <CardGroup cols={3}>
+      <Card title="DBSIZE" href="/redis/sdks/ts/commands/server/dbsize" />
+
+      <Card title="FLUSHALL" href="/redis/sdks/ts/commands/server/flushall" />
+
+      <Card title="FLUSHDB" href="/redis/sdks/ts/commands/server/flushdb" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Set">
+    <CardGroup cols={3}>
+      <Card title="SADD" href="/redis/sdks/ts/commands/set/sadd" />
+
+      <Card title="SCARD" href="/redis/sdks/ts/commands/set/scard" />
+
+      <Card title="SDIFF" href="/redis/sdks/ts/commands/set/sdiff" />
+
+      <Card title="SDIFFSTORE" href="/redis/sdks/ts/commands/set/sdiffstore" />
+
+      <Card title="SINTER" href="/redis/sdks/ts/commands/set/sinter" />
+
+      <Card title="SINTERSTORE" href="/redis/sdks/ts/commands/set/sinterstore" />
+
+      <Card title="SISMEMBER" href="/redis/sdks/ts/commands/set/sismember" />
+
+      <Card title="SMEMBERS" href="/redis/sdks/ts/commands/set/smembers" />
+
+      <Card title="SMISMEMBER" href="/redis/sdks/ts/commands/set/smismember" />
+
+      <Card title="SMOVE" href="/redis/sdks/ts/commands/set/smove" />
+
+      <Card title="SPOP" href="/redis/sdks/ts/commands/set/spop" />
+
+      <Card title="SRANDMEMBER" href="/redis/sdks/ts/commands/set/srandmember" />
+
+      <Card title="SREM" href="/redis/sdks/ts/commands/set/srem" />
+
+      <Card title="SSCAN" href="/redis/sdks/ts/commands/set/sscan" />
+
+      <Card title="SUNION" href="/redis/sdks/ts/commands/set/sunion" />
+
+      <Card title="SUNIONSTORE" href="/redis/sdks/ts/commands/set/sunionstore" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Sorted Set">
+    <CardGroup cols={3}>
+      <Card title="ZADD" href="/redis/sdks/ts/commands/zset/zadd" />
+
+      <Card title="ZCARD" href="/redis/sdks/ts/commands/zset/zcard" />
+
+      <Card title="ZCOUNT" href="/redis/sdks/ts/commands/zset/zcount" />
+
+      <Card title="ZDIFFSTORE" href="/redis/sdks/ts/commands/zset/zdiffstore" />
+
+      <Card title="ZINCRBY" href="/redis/sdks/ts/commands/zset/zincrby" />
+
+      <Card title="ZINTERSTORE" href="/redis/sdks/ts/commands/zset/zinterstore" />
+
+      <Card title="ZLEXCOUNT" href="/redis/sdks/ts/commands/zset/zlexcount" />
+
+      <Card title="ZMSCORE" href="/redis/sdks/ts/commands/zset/zmscore" />
+
+      <Card title="ZPOPMAX" href="/redis/sdks/ts/commands/zset/zpopmax" />
+
+      <Card title="ZPOPMIN" href="/redis/sdks/ts/commands/zset/zpopmin" />
+
+      <Card title="ZRANGE" href="/redis/sdks/ts/commands/zset/zrange" />
+
+      <Card title="ZRANK" href="/redis/sdks/ts/commands/zset/zrank" />
+
+      <Card title="ZREM" href="/redis/sdks/ts/commands/zset/zrem" />
+
+      <Card title="ZREMRANGEBYLEX" href="/redis/sdks/ts/commands/zset/zremrangebylex" />
+
+      <Card title="ZREMRANGEBYRANK" href="/redis/sdks/ts/commands/zset/zremrangebyrank" />
+
+      <Card title="ZREMRANGEBYSCORE" href="/redis/sdks/ts/commands/zset/zremrangebyscore" />
+
+      <Card title="ZREVRANK" href="/redis/sdks/ts/commands/zset/zrevrank" />
+
+      <Card title="ZSCAN" href="/redis/sdks/ts/commands/zset/zscan" />
+
+      <Card title="ZSCORE" href="/redis/sdks/ts/commands/zset/zscore" />
+
+      <Card title="ZUNIONSTORE" href="/redis/sdks/ts/commands/zset/zunionstore" />
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Stream">
+    <CardGroup cols={3}>
+      <Card title="XADD" href="/redis/sdks/ts/commands/stream/xadd">
+        Appends a new entry to a stream.
+      </Card>
+
+      <Card title="XRANGE" href="/redis/sdks/ts/commands/stream/xrange">
+        Return a range of elements in a stream, with IDs matching the specified IDs interval.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="String">
+    <CardGroup cols={3}>
+      <Card title="APPEND" href="/redis/sdks/ts/commands/string/append">
+        Append a value to a string stored at key.
+      </Card>
+
+      <Card title="DECR" href="/redis/sdks/ts/commands/string/decr">
+        Decrement the integer value of a key by one.
+      </Card>
+
+      <Card title="DECRBY" href="/redis/sdks/ts/commands/string/decrby">
+        Decrement the integer value of a key by the given number.
+      </Card>
+
+      <Card title="GET" href="/redis/sdks/ts/commands/string/get">
+        Get the value of a key.
+      </Card>
+
+      <Card title="GETDEL" href="/redis/sdks/ts/commands/string/getdel">
+        Get the value of a key and delete the key.
+      </Card>
+
+      <Card title="GETRANGE" href="/redis/sdks/ts/commands/string/getrange">
+        Get a substring of the string stored at a key.
+      </Card>
+
+      <Card title="GETSET" href="/redis/sdks/ts/commands/string/getset">
+        Set the string value of a key and return its old value.
+      </Card>
+
+      <Card title="INCR" href="/redis/sdks/ts/commands/string/incr">
+        Increment the integer value of a key by one.
+      </Card>
+
+      <Card title="INCRBY" href="/redis/sdks/ts/commands/string/incrby">
+        Increment the integer value of a key by the given amount.
+      </Card>
+
+      <Card title="INCRBYFLOAT" href="/redis/sdks/ts/commands/string/incrbyfloat">
+        Increment the float value of a key by the given amount.
+      </Card>
+
+      <Card title="MGET" href="/redis/sdks/ts/commands/string/mget">
+        Get the values of all the given keys.
+      </Card>
+
+      <Card title="MSET" href="/redis/sdks/ts/commands/string/mset">
+        Set multiple keys to multiple values.
+      </Card>
+
+      <Card title="MSETNX" href="/redis/sdks/ts/commands/string/msetnx">
+        Set multiple keys to multiple values, only if none of the keys exist.
+      </Card>
+
+      <Card title="SET" href="/redis/sdks/ts/commands/string/set">
+        Set the string value of a key.
+      </Card>
+
+      <Card title="SETRANGE" href="/redis/sdks/ts/commands/string/setrange">
+        Overwrite part of a string at key starting at the specified offset.
+      </Card>
+
+      <Card title="STRLEN" href="/redis/sdks/ts/commands/string/strlen">
+        Get the length of the value stored in a key.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Stream">
+    <CardGroup cols={3}>
+      <Card title="XACK" href="/redis/sdks/ts/commands/stream/xack">
+        Acknowledge one or multiple messages as processed for a consumer group.
+      </Card>
+
+      <Card title="XADD" href="/redis/sdks/ts/commands/stream/xadd">
+        Append a new entry to a stream.
+      </Card>
+
+      <Card title="XAUTOCLAIM" href="/redis/sdks/ts/commands/stream/xautoclaim">
+        Transfer ownership of pending messages to another consumer automatically.
+      </Card>
+
+      <Card title="XCLAIM" href="/redis/sdks/ts/commands/stream/xclaim">
+        Transfer ownership of pending messages to another consumer.
+      </Card>
+
+      <Card title="XDEL" href="/redis/sdks/ts/commands/stream/xdel">
+        Remove one or multiple entries from a stream.
+      </Card>
+
+      <Card title="XGROUP" href="/redis/sdks/ts/commands/stream/xgroup">
+        Manage consumer groups for Redis streams.
+      </Card>
+
+      <Card title="XINFO" href="/redis/sdks/ts/commands/stream/xinfo">
+        Get information about streams, consumer groups, and consumers.
+      </Card>
+
+      <Card title="XLEN" href="/redis/sdks/ts/commands/stream/xlen">
+        Get the number of entries in a stream.
+      </Card>
+
+      <Card title="XPENDING" href="/redis/sdks/ts/commands/stream/xpending">
+        Get information about pending messages in a consumer group.
+      </Card>
+
+      <Card title="XRANGE" href="/redis/sdks/ts/commands/stream/xrange">
+        Get entries from a stream within a range of IDs.
+      </Card>
+
+      <Card title="XREAD" href="/redis/sdks/ts/commands/stream/xread">
+        Read data from one or multiple streams.
+      </Card>
+
+      <Card title="XREADGROUP" href="/redis/sdks/ts/commands/stream/xreadgroup">
+        Read data from streams as part of a consumer group.
+      </Card>
+
+      <Card title="XREVRANGE" href="/redis/sdks/ts/commands/stream/xrevrange">
+        Get entries from a stream within a range of IDs in reverse order.
+      </Card>
+
+      <Card title="XTRIM" href="/redis/sdks/ts/commands/stream/xtrim">
+        Trim a stream to a specified size.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Transactions">
+    <Card title="TRANSACTION" href="/redis/sdks/ts/commands/transaction">
+      Run multiple commands in a transaction.
+    </Card>
+  </Accordion>
+</AccordionGroup>

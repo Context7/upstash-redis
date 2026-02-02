@@ -1,0 +1,44 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# JSON.SET
+
+> Set the JSON value at path in key.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key of the json entry.
+</ParamField>
+
+<ParamField body="path" type="string" required>
+  The path of the value to set. `$` is the root.
+</ParamField>
+
+<ParamField body="value" type="TValue" required>
+  The value to set.
+</ParamField>
+
+## Response
+
+<ResponseField type="OK" required>
+  `OK`
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  Set the JSON value at path in key.
+  redis.json.set(key, "$.path", value);
+  ```
+
+  ```ts NX theme={"system"}
+  const value = ...
+  redis.json.set(key, "$.path", value, { nx:true });
+  ```
+
+  ```ts XX theme={"system"}
+  const value = ...
+  redis.json.set(key, "$.path", value, { xx:true });
+  ```
+</RequestExample>

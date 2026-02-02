@@ -1,0 +1,38 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# LINSERT
+
+> Insert an element before or after another element in a list
+
+## Arguments
+
+<ParamField body="key" type="str" required>
+  The key of the list.
+</ParamField>
+
+<ParamField body="direction" type="&#x22;BEFORE&#x22; | &#x22;AFTER&#x22;" required>
+  Whether to insert the element before or after pivot.
+</ParamField>
+
+<ParamField body="pivot" type="Any" required>
+  The element to insert before or after.
+</ParamField>
+
+<ParamField body="value" type="Any" required>
+  The element to insert.
+</ParamField>
+
+## Response
+
+<ResponseField type="int" required>
+  The list length after insertion, `0` when the list doesn't exist or `-1` when pivot was not found.
+</ResponseField>
+
+<RequestExample>
+  ```py Example theme={"system"}
+  redis.rpush("key", "a", "b", "c")
+  redis.linsert("key", "before", "b", "x")
+  ```
+</RequestExample>

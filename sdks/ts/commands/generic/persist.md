@@ -1,0 +1,25 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://upstash.com/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# PERSIST
+
+> Remove any timeout set on the key.
+
+## Arguments
+
+<ParamField body="key" type="string" required>
+  The key to persist
+</ParamField>
+
+## Response
+
+<ResponseField type="integer" required>
+  `1` if the timeout was removed, `0` if `key` does not exist or does not have an associated timeout.
+</ResponseField>
+
+<RequestExample>
+  ```ts Example theme={"system"}
+  await redis.persist(key);
+  ```
+</RequestExample>
